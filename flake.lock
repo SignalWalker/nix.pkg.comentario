@@ -25,15 +25,16 @@
     "comentario": {
       "flake": false,
       "locked": {
-        "lastModified": 1728654991,
-        "narHash": "sha256-Zuad+fDjnY6EaFnFWjGeEBbOnNh9nsYuw9pu6QGJcNo=",
+        "lastModified": 1726311252,
+        "narHash": "sha256-o7NOj6Yy0h7KQb4zrz7o4ukb2+YFl5may64M43JaSvQ=",
         "owner": "comentario",
         "repo": "comentario",
-        "rev": "385d76f0229b41a7bbc46c5459f98b3fa2a55486",
+        "rev": "95e3075a2a18af61411cac97dd70e06d0c2e4842",
         "type": "gitlab"
       },
       "original": {
         "owner": "comentario",
+        "ref": "v3.10.0",
         "repo": "comentario",
         "type": "gitlab"
       }
