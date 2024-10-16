@@ -102,7 +102,7 @@ in {
       users.groups.${com.group} = {};
 
       services.comentario.settings = {
-        STATIC_PATH = com.package.frontend;
+        STATIC_PATH = toString com.package.frontend;
         DB_MIGRATION_PATH = "${com.package.backend}/lib/comentario/db";
         TEMPLATE_PATH = "${com.package.backend}/lib/comentario/templates";
       };
