@@ -61,6 +61,15 @@ in {
                   type = types.str;
                   default = "secrets.yaml";
                 };
+                STATIC_PATH = mkOption {
+                  type = types.str;
+                };
+                DB_MIGRATION_PATH = mkOption {
+                  type = types.str;
+                };
+                TEMPLATE_PATH = mkOption {
+                  type = types.str;
+                };
               };
             })
           ];
@@ -92,6 +101,12 @@ in {
       };
       users.groups.${com.group} = {};
 
+      services.comentario.settings = {
+        STATIC_PATH = com.package.frontend;
+        DB_MIGRATION_PATH = "${com.package.backend}/lib/comentario/db";
+        TEMPLATE_PATH = "${com.package.backend}/lib/comentario/templates";
+      };
+
       # adapted from https://gitlab.com/comentario/comentario/-/blob/dev/resources/systemd/system/comentario.service?ref_type=heads
       systemd.services."comentario" = {
         path = [com.package.backend com.package.frontend];
@@ -108,6 +123,7 @@ in {
           StateDirectoryMode = "0750";
           ConfigurationDirectory = com.user;
           ConfigurationDirectoryMode = "0750";
+          WorkingDirectory = com.dir.state;
         };
       };
     }
