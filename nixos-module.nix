@@ -42,6 +42,12 @@ in {
           default = "/etc/${com.user}";
         };
       };
+      socketPath = mkOption {
+        type = types.str;
+        readOnly = true;
+        default = "${com.dir.runtime}/comentario.sock";
+        description = "Path to the Unix socket on which the service will listen.";
+      };
       settings = mkOption {
         description = "Environment variables set for the Comentario service, as documented [here](https://docs.comentario.app/en/configuration/backend/static/).";
         type = types.submoduleWith {
@@ -129,7 +135,7 @@ in {
         serviceConfig = {
           Type = "simple";
           EnvironmentFile = com.settingsFile;
-          ExecStart = "${com.package.backend}/bin/comentario -v --socket-path=\"$RUNTIME_DIRECTORY/comentario.sock\"";
+          ExecStart = "${com.package.backend}/bin/comentario -v --socket-path=\"${com.socketPath}\"";
           User = com.user;
           Group = com.group;
           StateDirectory = com.user;
