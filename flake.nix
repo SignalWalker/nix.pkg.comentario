@@ -173,8 +173,6 @@
         in {
           default = pkgs.mkShell {
             inputsFrom = [selfPkgs.comentario-fe];
-            nativeBuildInputs = with pkgs; [
-            ];
             shellHook = ''
               export PATH="$PWD/node_modules/.bin:$PATH"
             '';
