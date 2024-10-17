@@ -91,37 +91,6 @@
               ln -sT ${oag}/share/java/${oagVersionName}.jar "${oagDir}/${oagVersionName}.jar"
             '';
           };
-          generatedApi = final.stdenv.mkDerivation (let
-            cacert = final.cacert;
-          in {
-            pname = "${feMeta.name}-generated-api";
-            version = feMeta.version;
-            nativeBuildInputs =
-              [nodejs yarn cacert oag]
-              ++ (with final; [
-                temurin-jre-bin
-              ]);
-            inherit src;
-            # outputHashAlgo = "sha256";
-            # outputHashMode = "recursive";
-            # outputHash = "sha256-OGnTgnVj7gAEc1ME75j5ogOonP4Bm8hWmKVS6hIjHEc=";
-            GIT_SSL_CAINFO = "${cacert}/etc/ssl/certs/ca-bundle.crt";
-            NODE_EXTRA_CA_CERTS = "${cacert}/etc/ssl/certs/ca-bundle.crt";
-            installPhase = ''
-              runHook preInstall
-
-              ln -sT ${deps}/node_modules ./node_modules
-              export PATH="$PWD/node_modules/.bin:$PATH"
-
-              rm frontend/openapitools.json
-              ln -sT ${openapitoolsUpdated} frontend/openapitools.json
-
-              yarn run --offline generate
-              mv frontend/generated-api $out
-
-              runHook postInstall
-            '';
-          });
           wsLinks = map (ws: "ln -sT ${deps}/deps/${ws}/node_modules ${ws}/node_modules") feMeta.workspaces;
         in {
           pname = feMeta.name;
@@ -148,9 +117,6 @@
             rm frontend/openapitools.json
             ln -sT ${openapitoolsUpdated} frontend/openapitools.json
             yarn run --offline generate
-
-            # ln -sT ${generatedApi} frontend/generated-api
-            # ls -lha frontend/generated-api
 
             yarn run --offline build:prod
 
