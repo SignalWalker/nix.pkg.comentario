@@ -3,32 +3,32 @@
     "comentario": {
       "flake": false,
       "locked": {
-        "lastModified": 1726311252,
-        "narHash": "sha256-o7NOj6Yy0h7KQb4zrz7o4ukb2+YFl5may64M43JaSvQ=",
+        "lastModified": 1749115860,
+        "narHash": "sha256-sOofCQHSvLwqKHDY0skjb7yUeY5gUA2mGPGAQFy1dGA=",
         "owner": "comentario",
         "repo": "comentario",
-        "rev": "95e3075a2a18af61411cac97dd70e06d0c2e4842",
+        "rev": "051591a59319933278049e93319b50cad88d081d",
         "type": "gitlab"
       },
       "original": {
         "owner": "comentario",
-        "ref": "v3.10.0",
+        "ref": "v3.14.0",
         "repo": "comentario",
         "type": "gitlab"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1728979988,
-        "narHash": "sha256-GBJRnbFLDg0y7ridWJHAP4Nn7oss50/VNgqoXaf/RVk=",
+        "lastModified": 1758589230,
+        "narHash": "sha256-zMTCFGe8aVGTEr2RqUi/QzC1nOIQ0N1HRsbqB4f646k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7881fbfd2e3ed1dfa315fca889b2cfd94be39337",
+        "rev": "d1d883129b193f0b495d75c148c2c3a7d95789a0",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
